@@ -7,3 +7,4 @@ include ( trailingslashit( get_template_directory() ).'includes/config.php' );
 include ( trailingslashit( get_template_directory() ).'includes/custom-functions.php' );
 include ( trailingslashit( get_template_directory() ).'includes/gravityform-settings.php' );
 include ( trailingslashit( get_template_directory() ).'includes/custom-posts-and-taxonomies.php' );
+include ( trailingslashit( get_template_directory() ).'includes/class-sidebar-nav-walker.php' );

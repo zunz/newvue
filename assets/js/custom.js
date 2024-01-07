@@ -595,3 +595,12 @@ jQuery(function($){
 	})();
 
 });
+
+
+jQuery(function($){
+	$('.submenu-items li.current-menu-item').each(function(){
+		var item = $(this).closest('.submenu-item');
+		item.find('.submenu-title').addClass('active');
+		item.find('.submenu-list').addClass('active');
+	});
+});

@@ -73,7 +73,7 @@ add_action( 'admin_head', 'add_favicon' );
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 432, 285, true );
 		add_image_size( 'full-width', 1920, 99999, false );
-		add_image_size( 'half-width', 920, 9999, false );
+		add_image_size( 'half-width', 1008, 9999, false );
 		add_image_size( 'quarter-width', 480, 9999, false );
 		add_image_size( 'square-592', 592, 592, true );
 		add_image_size( 'square-75', 75, 75, true );
