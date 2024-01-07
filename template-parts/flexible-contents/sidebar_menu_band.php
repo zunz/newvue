@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 	
 	<div class="left-cl">
 	<div class="left-in">		
-		<div class="txt wow fadeInUp">
+		<div class="txt wow fadeInUp body-text">
 		<?php the_sub_field( 'body_text' ); ?>
 		</div>
 		
@@ -18,9 +18,50 @@ defined( 'ABSPATH' ) || exit;
 		$image = get_sub_field( 'image' );
 		if( $image ):
 			?>		
-			<div class="figure-circle wow fadeInUp"><?php the_theme_img( $image, 'half-width' ); ?></div>
+			<div class="figure-circle wow fadeInUp">
+			<?php
+			the_theme_img( $image, 'half-width' );
+			the_theme_output( $image['caption'], '<span class="figure-caption">', '</span>' );
+			?>
+			</div>
 			<?php
 		endif;
+		?>
+		
+		<?php
+		while( have_rows( 'two_column_content' ) ): the_row();
+			$title = trim( get_sub_field( 'title' ) );
+			if( have_rows( 'row' ) ):
+				?>
+				<div class="row-cont wow fadeInUp">
+					<?php the_theme_output( $title, '<h2>', '</h2>' ); ?>
+					<div class="row">
+						<?php
+						while( have_rows( 'row' ) ): the_row();
+							$left_column_content = trim( get_sub_field( 'left_column_content' ) );
+							$right_column_content = trim( get_sub_field( 'right_column_content' ) );
+							if( $left_column_content ):
+								?>
+								<div class="col-md-6">
+									<?php echo $left_column_content; ?>
+								</div>
+								<?php
+							endif;
+							
+							if( $right_column_content ):
+								?>
+								<div class="col-md-6">
+									<?php echo $right_column_content; ?>
+								</div>
+								<?php
+							endif;
+						endwhile;
+						?>
+					</div>
+				</div>				
+				<?php
+			endif;
+		endwhile;
 		?>
 		
 		<?php while( have_rows( 'rows' ) ): the_row(); ?>

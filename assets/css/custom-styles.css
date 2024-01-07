@@ -9233,6 +9233,17 @@ a.box:active .read-more .a .fa-plus {
 	max-width: 1008px;
 }
 
+.sticky-col-wrap .left-cl .left-in .body-text h2 {
+	margin-top: 45px;
+}
+.sticky-col-wrap .left-cl .left-in .body-text h2:first-child {
+	margin-top: 0;
+}
+
+.sticky-col-wrap .left-cl .left-in .txt {
+	margin-bottom: 45px;
+}
+
 .sticky-col-wrap .right-cl {
 	width: 368px;
 	float: right;
@@ -9506,6 +9517,9 @@ a.box:active .read-more .a .fa-plus {
 .sticky-col-wrap .right-cl .submenu-btns ul li a {
 	padding: 17px 33px;	
 }
+.sticky-col-wrap .left-cl .left-in .txt {
+	margin-bottom: 35px;
+}
 }
 
 @media (max-width: 991px) {
@@ -9538,6 +9552,12 @@ a.box:active .read-more .a .fa-plus {
 	font-size: 18px;
 	line-height: 24px;
 	padding: 16px 33px;	
+}
+.sticky-col-wrap .left-cl .left-in .txt {
+	margin-bottom: 30px;
+}
+.sticky-col-wrap .left-cl .left-in .body-text h2 {
+	margin-top: 30px;
 }
 }
 
