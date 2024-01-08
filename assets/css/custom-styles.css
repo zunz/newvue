@@ -7457,6 +7457,13 @@ a.box:active .read-more .a .fa-plus {
 	margin-bottom: 0;	
 }
 
+.team-list .team-entry p {
+	padding-bottom: 10px;	
+}
+.team-list .team-entry p:last-child {
+	padding-bottom: 0;
+}
+
 .team-list .row > div h4,
 .team-list .row > div .h4 {
 	font-weight: 700;
@@ -7512,6 +7519,13 @@ a.box:active .read-more .a .fa-plus {
 
 .team-list .row > div .box-logo .aside {
 	width: 100%;
+}
+
+.team-list .row > div .box-logo .aside p {
+	padding-bottom: 10px;
+}
+.team-list .row > div .box-logo .aside p:last-child {
+	padding-bottom: 5px;
 }
 
 @media (min-width: 992px) {
@@ -9308,6 +9322,7 @@ a.box:active .read-more .a .fa-plus {
 .sticky-col-wrap .right-cl .submenu-list ul li > a:hover,
 .sticky-col-wrap .right-cl .submenu-list ul li > a:focus,
 .sticky-col-wrap .right-cl .submenu-list ul li > a:active,
+.sticky-col-wrap .right-cl .submenu-list ul li.current-cat > a, 
 .sticky-col-wrap .right-cl .submenu-list ul li.current-menu-item > a, 
 .sticky-col-wrap .right-cl .submenu-list ul li.current-menu-parent > a, 
 .sticky-col-wrap .right-cl .submenu-list ul li.current-menu-ancestor > a {
