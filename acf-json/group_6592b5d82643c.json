@@ -61,8 +61,8 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "post_object",
-            "allow_null": 0,
+            "return_format": "id",
+            "allow_null": 1,
             "multiple": 0
         }
     ],
@@ -84,5 +84,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704113727
+    "modified": 1704789057
 }

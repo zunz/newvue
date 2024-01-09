@@ -94,7 +94,7 @@ if( have_posts() ): while( have_posts() ): the_post();
 				setup_postdata( $post );
 				?>
 				<div class="col-12"><a href="<?php the_permalink(); ?>" class="box">
-				<div class="date"><?php echo get_the_date( 'F js' ); ?></div>
+				<div class="date"><?php echo get_the_date(); ?></div>
 				<h4><?php the_title(); ?></h4>
 				</a></div>
 				<?php

@@ -8576,6 +8576,10 @@ a.box:active .read-more .a .fa-plus {
 	margin-bottom: 45px;
 }
 
+.events-detail > div .regis-steps .step strong {
+	font-weight: 600;
+}
+
 .events-detail > div .regis-steps .step:last-child {
 	margin-bottom: 0;
 }
@@ -10425,4 +10429,11 @@ a img.aligncenter {
 
 .off-white-bg +  .download-links-grid {
 	padding-top: 0 !important;	
+}
+
+/* -- The Events Calendar -- */
+#tribe-events-pg-template {
+	margin: 0;
+	max-width: none;
+	padding: 0;
 }
