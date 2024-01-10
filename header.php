@@ -78,18 +78,20 @@
 					'items_wrap'	=> '%3$s'
 				);
 				wp_nav_menu( $args );
-			endif;
-			
+			endif;			
+			?>				
+			</ul>
+			<?php echo do_shortcode('[gtranslate]'); ?>
+			<?php
 			$header_cta_btn = get_field( 'header_cta_button', 'options' );
 			if( $header_cta_btn ):
 				$li_class = '';
 				if( is_singular() && get_permalink() == $header_cta_btn['url'] ):
 					$li_class = 'current-menu-item';
 				endif;
-				the_theme_link_button( $header_cta_btn, array( 'before' => '<li class="menu-item-give '.$li_class.'">', 'after' => '</li>', 'class' => '' ) );
+				the_theme_link_button( $header_cta_btn, array( 'before' => '<ul><li class="menu-item-give '.$li_class.'">', 'after' => '</li></ul>', 'class' => '' ) );
 			endif;
-			?>				
-			</ul>
+			?>
 			</div>
 			
 			<div class="search-box btn-disabled">

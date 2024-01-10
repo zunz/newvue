@@ -2823,11 +2823,18 @@ a.box:active .read-more .a .fa-plus {
 	display: none;
 }
 
+.header-main .gtranslate_wrapper,
 .header-main .top-menu ul li.mega-menu-item > a,
 .header-main .top-menu ul li.menu-item-has-children > a {
 	padding-right: 18px;
 }
 
+.header-main .gtranslate_wrapper {
+	position: relative;
+	color: #fff;
+}
+
+.header-main .gtranslate_wrapper:after,
 .header-main .top-menu ul li.mega-menu-item > a:after,
 .header-main .top-menu ul li.menu-item-has-children > a:after {
 	content: "\f078";
@@ -3761,6 +3768,17 @@ a.box:active .read-more .a .fa-plus {
 	display: none;
 }
 
+.header-main .gtranslate_wrapper {
+	position: relative;
+	font-size: 20px;
+	display: flex;
+}
+
+.header-main .gtranslate_wrapper select {
+	
+}
+
+.header-main .gtranslate_wrapper:after,
 .header-main .primary-menu ul li .menu-txt:after {
 	content: "\f078";
 	font-family: "Font Awesome\ 5 Pro";
@@ -3776,6 +3794,12 @@ a.box:active .read-more .a .fa-plus {
 	-o-transform: translate(0, -50%);
 	transform: translate(0, -50%);
 	margin: 2px 0 0 0;
+}
+
+.header-main .gtranslate_wrapper:after {
+	position: static;
+	transform: none;
+	line-height: 50px;
 }
 
 .header-main .primary-menu ul li .menu-txt.active:after {
@@ -5172,6 +5196,24 @@ a.box:active .read-more .a .fa-plus {
 	transform: translate(-50%, -50%);
 	margin: 0;
 	opacity: .15;
+}
+
+.hero-main .figure:after {
+	background: url(../img/house-icon.png) center center no-repeat;
+	background-size: 100% auto;
+	content: '';
+	position: absolute;
+	aspect-ratio: 643 / 468;
+	width: calc((643 / 1920) * 100%);	
+	right: calc((-45 / 1920) * 100%);
+	bottom: 145px;
+	opacity: 0.66;
+}
+
+@media (max-width: 767px) {
+	.hero-main .figure:after {
+		bottom: 80px;
+	}
 }
 
 .hero-main h1,
@@ -10513,4 +10555,36 @@ a img.aligncenter {
 
 .latest-feeds + .alternating-2-col-text-img {
 	padding-top: 0 !important;
+}
+
+.header-main .gtranslate_wrapper {
+	float: left;
+	margin-left: 34px;
+}
+.header-main .gtranslate_wrapper select {
+	background: transparent;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	color: white;
+	height: 50px;
+	width: auto;
+}
+.header-main .gtranslate_wrapper select option {
+	color: black;
+}
+
+@media (max-width: 1199px) {
+	.header-main .gtranslate_wrapper {
+		margin: 0;
+		width: 100%;
+	}
+	.header-main .gtranslate_wrapper select {
+		font-weight: 700;
+		font-size: 20px;
+	}
+	.header-main .gtranslate_wrapper select option {
+		font-weight: 400;
+	}
 }

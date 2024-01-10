@@ -34,20 +34,25 @@ if ( empty( $disable_event_search ) ) {
 <div class="hero-inner alt3">
 <div class="container max-1264">
 	
-	<h1 class="sub-title wow fadeInUp">UPCOMING EVENTS</h1>
+	<h1 class="sub-title wow fadeInUp"><?php _e( 'Upcoming Events', 'newvue' ); ?></h1>
 	
 	<div class="filter-dropdown wow fadeInUp">
 	<div class="filter-wrap">
 		<div class="filter-label">I’m interested in:</div>
 		<div class="filter-links">
-		<button class="dropdown-toggle" data-bs-toggle="dropdown">First Time Homebuyer Classes</button>	
-		<div class="dropdown-menu">
-		<ul>
-		<li><a href="#sec-first-time-homebuyer-classes">First Time Homebuyer Classes</a></li>
-		<li><a href="#sec-steward-training-classes">Steward Training Classes</a></li>
-		<li><a href="#sec-newVue-events">NewVue Events</a></li>
-		</ul>
-		</div>
+		<?php
+		$terms = get_terms( array( 'taxonomy' => 'tribe_events_cat' ) );
+		if( !empty( $terms ) ):
+		?>
+			<button class="dropdown-toggle" data-bs-toggle="dropdown"><?php echo $terms[0]->name; ?></button>	
+			<div class="dropdown-menu">
+			<ul>
+			<?php foreach( $terms as $term ): ?>
+				<li><a href="#<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
+			<?php endforeach; ?>			
+			</ul>
+			</div>
+		<?php endif; ?>
 		</div>
 	</div>
 	</div>
@@ -55,53 +60,55 @@ if ( empty( $disable_event_search ) ) {
 </div>
 </div>
 
-
-<div
-	<?php tribe_classes( $container_classes ); ?>
-	data-js="tribe-events-view"
-	data-view-rest-url="<?php echo esc_url( $rest_url ); ?>"
-	data-view-rest-method="<?php echo esc_attr( $rest_method ); ?>"
-	data-view-manage-url="<?php echo esc_attr( $should_manage_url ); ?>"
-	<?php foreach ( $container_data as $key => $value ) : ?>
-		data-view-<?php echo esc_attr( $key ) ?>="<?php echo esc_attr( $value ) ?>"
-	<?php endforeach; ?>
-	<?php if ( ! empty( $breakpoint_pointer ) ) : ?>
-		data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>"
-	<?php endif; ?>
->
-	<div class="tribe-common-l-container tribe-events-l-container">
-		<?php $this->template( 'components/loader', [ 'text' => __( 'Loading...', 'the-events-calendar' ) ] ); ?>
-
-		<?php $this->template( 'components/json-ld-data' ); ?>
-
-		<?php $this->template( 'components/data' ); ?>
-
-		<?php $this->template( 'components/before' ); ?>
-
-		<?php $this->template( 'components/header' ); ?>
-
-		<?php $this->template( 'components/filter-bar' ); ?>
-
-		<div class="tribe-events-calendar-list">
-
-			<?php foreach ( $events as $event ) : ?>
-				<?php $this->setup_postdata( $event ); ?>
-
-				<?php $this->template( 'list/month-separator', [ 'event' => $event ] ); ?>
-
-				<?php $this->template( 'list/event', [ 'event' => $event ] ); ?>
-
-			<?php endforeach; ?>
-
-		</div>
-
-		<?php $this->template( 'list/nav' ); ?>
-
-		<?php $this->template( 'components/ical-link' ); ?>
-
-		<?php $this->template( 'components/after' ); ?>
-
+<!--=== Content - Inner2 ===-->
+<div class="content-inner2">
+<div class="container">
+	
+	<div class="sortby-option wow fadeInLeft">
+		<p>View by:</p>
+		<div class="sortby"><a href="#" class="active">LIST</a> <a href="#">MONTH</a></div>
 	</div>
+	
+	
+	<div class="articles-list-wrap">
+	
+		<?php
+		global $post;
+		$terms = get_terms( array('taxonomy' => 'tribe_events_cat' ) );
+		if( !empty( $terms ) ):
+		foreach( $terms as $term ):
+			?>
+			<div class="articles-list wow fadeInUp" id="<?php echo $term->slug; ?>">
+				<div class="heading-center wow fadeInUp">
+					<h2><?php echo $term->name; ?></h2>
+				</div>
+				
+				<div class="row">
+					<?php
+					$posts = tribe_get_events( array( 
+					'ends_after' => 'now',
+					'posts_per_page' => -1,
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'tribe_events_cat',
+							'terms' => $term->term_id,
+						)
+					)
+					) );
+					if(!empty($posts)): foreach($posts as $post):
+						setup_postdata($post );
+						get_template_part( 'template-parts/item', 'event' );
+					endforeach; endif;
+					wp_reset_postdata();
+					?>							
+				</div>
+			</div>
+			<?php
+		endforeach;
+		endif;
+		?>	
+		
+	</div>
+	
 </div>
-
-<?php $this->template( 'components/breakpoints' ); ?>
+</div>
