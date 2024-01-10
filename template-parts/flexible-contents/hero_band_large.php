@@ -20,40 +20,36 @@ defined( 'ABSPATH' ) || exit;
 </div>
 </div>
 
-	
-<!--=== Latest - Feeds ===-->
-<div class="latest-feeds">
-<div class="container">
-	
-	<div class="row wow fadeInUp">
-		<div class="col-lg-6"><a href="upcoming-events.html" class="box">
-		<div class="figure"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/latest-feeds-upcomingevents.png" alt="latest-feeds-upcomingevents" /></div>
-		<div class="aside">
-		<div class="top-wrap">		
-		<div class="category-name">UPCOMING EVENT</div>
-		<div class="date">October 24th, 25th & 26th</div>
-		<h3>First-Time Homebuyer Education Classes</h3>
-		</div>
-		<div class="btm-wrap">
-		<div class="read-more"><span class="a">Sign Up <em class="fas fa-long-arrow-right"></em></span></div>
-		</div>
-		</div>
-		</a></div>
+<?php
+$posts = array();
+$featured_posts_feed = get_sub_field( 'featured_posts_feed' );
+if( 'upcoming-events' == $featured_posts_feed ):
+	$posts = tribe_get_events( array( 'ends_after' => 'now', 'posts_per_page' => 2 ) );
+elseif( 'recent-news' == $featured_posts_feed ):
+	$posts = get_posts( array( 'post_type' => 'post', 'posts_per_page' => 2 ) );
+elseif( 'all-posts' == $featured_posts_feed ):
+	$posts = get_posts( array( 'post_type' => array( 'post', 'tribe_events' ), 'posts_per_page' => 2 ) );
+else:
+	$posts = get_sub_field( 'manual_featured_posts' );
+endif;
+
+if( !empty( $posts ) ):
+	?>
+	<!--=== Latest - Feeds ===-->
+	<div class="latest-feeds">
+	<div class="container">
 		
-		<div class="col-lg-6"><a href="news.html" class="box">
-		<div class="figure"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/latest-feeds-news.png" alt="latest-feeds-news" /></div>
-		<div class="aside">
-		<div class="top-wrap">		
-		<div class="category-name">RECENT NEWS</div>
-		<div class="date">May 27, 2023</div>
-		<h3>Congressman Mcgovern Brings Great News To Anthol</h3>
+		<div class="row wow fadeInUp">
+			<?php
+			foreach( $posts as $post ):
+				setup_postdata( $post );
+				get_template_part( 'template-parts/item', 'hero_band' );
+			endforeach;
+			wp_reset_postdata();
+			?>				
 		</div>
-		<div class="btm-wrap">
-		<div class="read-more"><span class="a">Read More <em class="fas fa-long-arrow-right"></em></span></div>
-		</div>
-		</div>
-		</a></div>		
+		
 	</div>
-	
-</div>
-</div>
+	</div>
+<?php
+endif;

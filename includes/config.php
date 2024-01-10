@@ -75,10 +75,12 @@ add_action( 'admin_head', 'add_favicon' );
 		add_image_size( 'full-width', 1920, 99999, false );
 		add_image_size( 'half-width', 1008, 9999, false );
 		add_image_size( 'quarter-width', 480, 9999, false );
+		add_image_size( 'square-640', 640, 640, true );
 		add_image_size( 'square-592', 592, 592, true );
 		add_image_size( 'square-470', 470, 470, true );
 		add_image_size( 'square-75', 75, 75, true );
 		add_image_size( 'single-post', 413, 518, true );
+		add_image_size( 'hero-band', 284, 300, true );
 		
 
 
@@ -107,6 +109,16 @@ add_action( 'admin_head', 'add_favicon' );
 		return '...';
 	}
 	add_filter( 'excerpt_more', 'theme_custom_excerpt_more' );
+	
+
+// =================================================
+//	:: Add .btn class to the pagination links ::
+// -------------------------------------------------
+	function theme_button_link_attributes() {
+		return 'class="btn"';
+	}
+	add_filter( 'next_posts_link_attributes', 'theme_button_link_attributes' );
+	add_filter( 'previous_posts_link_attributes', 'theme_button_link_attributes' );
 
 
 // =================================================

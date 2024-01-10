@@ -202,7 +202,7 @@
                             "name": "collage_image_1",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Suggested image size is XXXX",
+                            "instructions": "Suggested image size is 499 x 223 pixels",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -227,7 +227,7 @@
                             "name": "collage_image_2",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Suggested image size is XXXX",
+                            "instructions": "Suggested image size is 392 x 320 pixels",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -252,7 +252,7 @@
                             "name": "collage_image_3",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Suggested image size is XXXX",
+                            "instructions": "Suggested image size is 423 x 402 pixels",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -473,8 +473,8 @@
                         },
                         {
                             "key": "field_65981a179b3da",
-                            "label": "Row Size",
-                            "name": "row_size",
+                            "label": "Row Width",
+                            "name": "row_width",
                             "aria-label": "",
                             "type": "select",
                             "instructions": "",
@@ -487,9 +487,35 @@
                             },
                             "choices": {
                                 "normal": "Normal",
-                                "smaller": "Smaller"
+                                "wide": "Wide"
                             },
                             "default_value": "normal",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_659e504893d20",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "white": "Off-White",
+                                "blue": "Blue"
+                            },
+                            "default_value": "white",
                             "return_format": "value",
                             "multiple": 0,
                             "allow_null": 0,
@@ -518,33 +544,6 @@
                             "button_label": "Add Row",
                             "rows_per_page": 20,
                             "sub_fields": [
-                                {
-                                    "key": "field_6592bc3dae029",
-                                    "label": "Background Color",
-                                    "name": "background_color",
-                                    "aria-label": "",
-                                    "type": "select",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "white": "Off-White",
-                                        "blue": "Blue"
-                                    },
-                                    "default_value": "white",
-                                    "return_format": "value",
-                                    "multiple": 0,
-                                    "allow_null": 0,
-                                    "ui": 0,
-                                    "ajax": 0,
-                                    "placeholder": "",
-                                    "parent_repeater": "field_6592bc2fae028"
-                                },
                                 {
                                     "key": "field_6592bc56ae02a",
                                     "label": "Title",
@@ -1349,7 +1348,7 @@
                             ],
                             "return_format": "object",
                             "min": "",
-                            "max": "",
+                            "max": 2,
                             "elements": "",
                             "bidirectional": 0,
                             "bidirectional_target": []
@@ -2211,5 +2210,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704631621
+    "modified": 1704892833
 }

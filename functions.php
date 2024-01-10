@@ -8,3 +8,4 @@ include ( trailingslashit( get_template_directory() ).'includes/custom-functions
 include ( trailingslashit( get_template_directory() ).'includes/gravityform-settings.php' );
 include ( trailingslashit( get_template_directory() ).'includes/custom-posts-and-taxonomies.php' );
 include ( trailingslashit( get_template_directory() ).'includes/class-sidebar-nav-walker.php' );
+include ( trailingslashit( get_template_directory() ).'includes/custom-shortcodes.php' );

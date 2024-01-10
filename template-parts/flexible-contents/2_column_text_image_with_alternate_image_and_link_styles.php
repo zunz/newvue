@@ -19,7 +19,13 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			</div>					
 			<div class="col-lg-6 wow fadeInRight">
-			<div class="figure"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/aboutnewvue-group.png" alt="aboutnewvue-group" /></div>
+			<div class="collage-wrap">
+				<?php
+				the_theme_img( get_sub_field( 'collage_image_1' ), 'half-width', array( 'class' => 'collage-1' ) );
+				the_theme_img( get_sub_field( 'collage_image_3' ), 'half-width', array( 'class' => 'collage-3' ) );
+				the_theme_img( get_sub_field( 'collage_image_2' ), 'half-width', array( 'class' => 'collage-2' ) );
+				?>
+			</div>
 			</div>		
 		</div>
 	</div>
