@@ -131,6 +131,7 @@ a[href^="mailto:"] {
 /*= Headings: P, H1, H2, H3, H4, H5, H6 
 =======================================================*/
 
+.tribe-common h2,
 h1,
 .h1,
 h2,
@@ -155,6 +156,7 @@ h1,
 	padding-bottom: 32px;
 }
 
+.tribe-common h2,
 h2,
 .h2 {	
 	font-size: 48px;
@@ -4396,6 +4398,7 @@ a.box:active .read-more .a .fa-plus {
 
 
 /* Heading - Center */
+.tribe-common .heading-center,
 .heading-center {
 	width: 100%;
 	float: none;
@@ -4425,6 +4428,7 @@ a.box:active .read-more .a .fa-plus {
 }
 
 @media (max-width: 767px) {
+.tribe-common .heading-center,
 .heading-center {
 	margin-bottom: 50px;
 }
@@ -5073,6 +5077,7 @@ a.box:active .read-more .a .fa-plus {
 
 
 /* Sort - By */
+.tribe-common .sortby-option,
 .sortby-option {
 	width: 100%;
 	float: none;
@@ -5127,6 +5132,7 @@ a.box:active .read-more .a .fa-plus {
 }
 
 @media (max-width: 767px) {
+.tribe-common .sortby-option,
 .sortby-option {
 	font-size: 18px;
 	line-height: 24px;
@@ -10587,4 +10593,18 @@ a img.aligncenter {
 	.header-main .gtranslate_wrapper select option {
 		font-weight: 400;
 	}
+}
+
+#content-main .tribe-events .tribe-events-l-container {
+	width: 100%;
+	max-width: 1600px;
+	padding: 0 40px;
+}
+
+#content-main .tribe-events ul li:before {
+	display: none;
+}
+#content-main .tribe-events .tribe-events-header__events-bar {
+	border: 0;
+	margin: 0;
 }

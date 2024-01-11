@@ -1,20 +1,18 @@
 <?php
 /**
- * View: List View
+ * View: Month View
  *
  * Override this template in your own theme by creating a file at:
- * [your-theme]/tribe/events/v2/list.php
+ * [your-theme]/tribe/events/v2/month.php
  *
  * See more documentation about our views templating system.
  *
- * @link    http://evnt.is/1aiy
- *
- * @since   6.1.4 Changing our nonce verification structures.
+ * @link http://evnt.is/1aiy
  *
  * @version 6.2.0
- * @since 6.2.0 Moved the header information into a new components/header.php template.
+ * @since   6.1.4 Changing our nonce verification structures.
+ * @since   6.2.0 Moved the header information into a new components/header.php template.
  *
- * @var array    $events               The array containing the events.
  * @var string   $rest_url             The REST URL.
  * @var string   $rest_method          The HTTP method, either `POST` or `GET`, the View will use to make requests.
  * @var int      $should_manage_url    int containing if it should manage the URL.
@@ -29,10 +27,8 @@ if ( empty( $disable_event_search ) ) {
 	$header_classes[] = 'tribe-events-header--has-event-search';
 }
 
-
 $container_classes[] = 'content-inner2';
 ?>
-
 <div
 	<?php tribe_classes( $container_classes ); ?>
 	data-js="tribe-events-view"
@@ -59,47 +55,30 @@ $container_classes[] = 'content-inner2';
 
 		<?php $this->template( 'components/filter-bar' ); ?>
 
-		<div class="articles-list-wrap">
-	
-			<?php
-			global $post;
-			$terms = get_terms( array('taxonomy' => 'tribe_events_cat' ) );
-			if( !empty( $terms ) ):
-			foreach( $terms as $term ):
-				?>
-				<div class="articles-list wow fadeInUp" id="<?php echo $term->slug; ?>">
-					<div class="heading-center wow fadeInUp">
-						<h2><?php echo $term->name; ?></h2>
-					</div>
-					
-					<div class="row">
-						<?php
-						$posts = tribe_get_events( array( 
-						'ends_after' => 'now',
-						'posts_per_page' => -1,
-						'tax_query' => array(
-							array(
-								'taxonomy' => 'tribe_events_cat',
-								'terms' => $term->term_id,
-							)
-						)
-						) );
-						if(!empty($posts)): foreach($posts as $post):
-							setup_postdata($post );
-							get_template_part( 'template-parts/item', 'event' );
-						endforeach; endif;
-						wp_reset_postdata();
-						?>							
-					</div>
-				</div>
-				<?php
-			endforeach;
-			endif;
-			?>	
-			
+		<div
+			class="tribe-events-calendar-month"
+			role="grid"
+			aria-labelledby="tribe-events-calendar-header"
+			aria-readonly="true"
+			data-js="tribe-events-month-grid"
+		>
+
+			<?php $this->template( 'month/calendar-header' ); ?>
+
+			<?php $this->template( 'month/calendar-body' ); ?>
+
 		</div>
+
+		<?php $this->template( 'components/messages', [ 'classes' => [ 'tribe-events-header__messages--mobile' ] ] ); ?>
+
+		<?php $this->template( 'month/mobile-events' ); ?>
+
+		<?php $this->template( 'components/ical-link' ); ?>
 
 		<?php $this->template( 'components/after' ); ?>
 
 	</div>
+
 </div>
+
+<?php $this->template( 'components/breakpoints' ); ?>
