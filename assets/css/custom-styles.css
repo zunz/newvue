@@ -132,6 +132,7 @@ a[href^="mailto:"] {
 =======================================================*/
 
 .tribe-common h2,
+.tribe-common h3,
 h1,
 .h1,
 h2,
@@ -178,6 +179,7 @@ h2:before,
 	left: 0;
 }
 
+.tribe-common h3,
 h3,
 .h3 {
 	font-size: 33px;
@@ -282,12 +284,14 @@ h1,
 	padding-bottom: 25px;
 }
 
+.tribe-common h2,
 h2,
 .h2 {	
 	font-size: 40px;
 	line-height: 46px;
 }
 
+.tribe-common h3,
 h3,
 .h3 {
 	font-size: 30px;
@@ -324,6 +328,7 @@ h1,
 	padding-bottom: 25px;
 }
 
+.tribe-common h2,
 h2,
 .h2 {	
 	font-size: 34px;
@@ -337,6 +342,7 @@ h2:before,
 	width: 90px;
 }
 
+.tribe-common h3,
 h3,
 .h3 {
 	font-size: 28px;
@@ -1763,10 +1769,15 @@ calculation of the height of the owl-item that breaks page layouts
 
 
 /* Container */
+.tribe-common .tribe-events-l-container,
 .container {
 	width: 100%;
 	max-width: 1600px;
 	padding: 0 40px;
+}
+#page .tribe-common .tribe-events-l-container {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 @media (min-width: 1200px) {
@@ -1776,6 +1787,7 @@ calculation of the height of the owl-item that breaks page layouts
 }
 
 @media (max-width: 767px) {
+.tribe-common .tribe-events-l-container,
 .container {
 	max-width: 640px;
 	padding: 0 20px;
@@ -1961,6 +1973,7 @@ calculation of the height of the owl-item that breaks page layouts
 
 
 /* Date / Location */
+.tribe-common .date,
 .date,
 .location {
 	font-weight: 500;
@@ -2007,6 +2020,7 @@ calculation of the height of the owl-item that breaks page layouts
 }
 
 @media (max-width: 767px) {
+.tribe-common .date,
 .date,
 .location {
 	font-size: 18px;
@@ -4272,6 +4286,7 @@ a.box:active .read-more .a .fa-plus {
 	padding-bottom: 0;
 }
 
+.tribe-common .row,
 .row {
 	padding-bottom: 100px;
 	margin: 0 -30px -80px -30px;
@@ -4302,6 +4317,8 @@ a.box:active .read-more .a .fa-plus {
 }
 
 @media (min-width: 1600px) {
+	
+.tribe-common .row,
 .row {
 	margin-left: -40px;
 	margin-right: -40px;
@@ -4314,6 +4331,7 @@ a.box:active .read-more .a .fa-plus {
 }
 
 @media (max-width: 1399px) {
+.tribe-common .row,
 .row {
 	margin: 0 -25px -70px -25px;
 }
@@ -4327,7 +4345,7 @@ a.box:active .read-more .a .fa-plus {
 .row-out {
 	padding-bottom: 80px;
 }
-
+.tribe-common .row,
 .row {
 	padding-bottom: 80px;
 	margin: 0 -20px -60px -20px;
@@ -4352,6 +4370,7 @@ a.box:active .read-more .a .fa-plus {
 	padding-bottom: 60px;
 }
 
+.tribe-common .row,
 .row {
 	padding-bottom: 60px;
 	margin: 0 -15px -50px -15px;
@@ -10595,16 +10614,31 @@ a img.aligncenter {
 	}
 }
 
-#content-main .tribe-events .tribe-events-l-container {
-	width: 100%;
-	max-width: 1600px;
-	padding: 0 40px;
-}
-
 #content-main .tribe-events ul li:before {
 	display: none;
 }
 #content-main .tribe-events .tribe-events-header__events-bar {
+	background: transparent;
 	border: 0;
 	margin: 0;
+	display: block;
+}
+
+#content-main .tribe-events .tribe-events-c-events-bar__views {
+	display: block;
+}
+#content-main .tribe-events .tribe-events-c-view-selector {
+	width: auto;
+}
+#content-main .tribe-events-header__top-bar {
+	padding-top: 79px;
+}
+#content-main .tribe-events .tribe-events-header {
+	display: block;
+}
+
+@media (max-width: 767px) {
+	#content-main .tribe-events-header__top-bar {
+		padding-top: 60px;
+	}
 }

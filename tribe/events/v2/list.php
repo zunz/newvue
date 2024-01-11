@@ -31,6 +31,7 @@ if ( empty( $disable_event_search ) ) {
 
 
 $container_classes[] = 'content-inner2';
+//unset($container_classes[0])
 ?>
 
 <div

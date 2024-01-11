@@ -27,6 +27,13 @@ $classes = [ 'tribe-events-header__events-bar', 'tribe-events-c-events-bar' ];
 if ( empty( $disable_event_search ) ) {
 	$classes[] = 'tribe-events-c-events-bar--border';
 }
+
+$is_tabs_style         = empty( $disable_event_search ) && 3 >= count( $public_views );
+$view_selector_classes = [
+	'tribe-events-c-view-selector'         => true,
+	'tribe-events-c-view-selector--labels' => empty( $disable_event_search ),
+	'tribe-events-c-view-selector--tabs'   => $is_tabs_style,
+];
 ?>
 <div
 	<?php tribe_classes( $classes ); ?>
@@ -34,6 +41,10 @@ if ( empty( $disable_event_search ) ) {
 >
 
 
-	<?php $this->template( 'components/events-bar/views' ); ?>
+	<div class="tribe-events-c-events-bar__views">		
+		<div <?php tribe_classes( $view_selector_classes ); ?> data-js="tribe-events-view-selector">			
+			<?php $this->template( 'components/events-bar/views/list' ); ?>
+		</div>
+	</div>
 
 </div>

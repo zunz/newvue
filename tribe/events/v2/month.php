@@ -50,8 +50,29 @@ $container_classes[] = 'content-inner2';
 		<?php $this->template( 'components/data' ); ?>
 
 		<?php $this->template( 'components/before' ); ?>
+		
+		<?php
+		$header_classes = [ 'tribe-events-header' ];
+		if ( empty( $disable_event_search ) ) {
+			$header_classes[] = 'tribe-events-header--has-event-search';
+		}
+		?>
 
-		<?php $this->template( 'components/header' ); ?>
+		<header <?php tribe_classes( $header_classes ); ?>>
+			<?php $this->template( 'components/messages' ); ?>
+
+			<?php $this->template( 'components/messages', [ 'classes' => [ 'tribe-events-header__messages--mobile' ] ] ); ?>
+
+			<?php $this->template( 'components/header-title' ); ?>
+
+			<?php $this->template( 'components/breadcrumbs' ); ?>
+
+			<?php $this->template( 'components/events-bar' ); ?>
+
+			<?php $this->template( 'components/content-title' ); ?>
+
+			<?php $this->template( [ $this->get_view_slug(), 'top-bar' ] ); ?>
+		</header>
 
 		<?php $this->template( 'components/filter-bar' ); ?>
 
